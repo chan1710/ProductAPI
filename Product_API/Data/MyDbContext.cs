@@ -6,13 +6,15 @@ namespace Product_API.Data
     {
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
+        public MyDbContext() : base() { }
+
         #region DbSet
-        public DbSet<RefreshToken> RefreshTokens { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Type> Types { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderItem> OrderItems { get; set; }
+        public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Type> Types { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
 
         #endregion
         protected override void OnModelCreating(ModelBuilder modelBuilder)

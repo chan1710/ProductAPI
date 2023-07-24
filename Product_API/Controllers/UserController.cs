@@ -27,8 +27,10 @@ namespace Product_API.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Validate(LoginModel model)
         {
-            var user = _context.Users.SingleOrDefault(p => p.UserName ==
-            model.UserName && model.Password == p.Password);
+            var user = _context.Users.SingleOrDefault(
+                p =>
+                    p.UserName == model.UserName && model.Password == p.Password
+            );
             if (user == null)
             {
                 return Ok(new ApiResponse
@@ -70,6 +72,8 @@ namespace Product_API.Controllers
             };
 
             var token = jwtTokenHander.CreateToken(tokenDescription);
+
+
             var accessToken = jwtTokenHander.WriteToken(token);
             var refreshToken = GenerateRefreshToken();
 
